@@ -1,0 +1,136 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #565f68;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #0d6efd;
+    /* text-decoration: none; */
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0d6efd;
+}
+
+#headerDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lightMode {
+    width: 2rem;
+    margin-bottom: 1rem;
+    /* filter: invert(0%); */
+}
+
+.password-length{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.password-length input{
+    justify-content: space-between;
+}
+
+.form-control {
+    width: 80px;
+    border: 1px solid #ebebeb;
+}
+
+.form-range{
+    width: calc(100% - 90px);
+}
+
+.copy-text input {
+    width: calc(100% - (44px + 44px));
+    padding: 0.5rem;
+    border: 1px solid #ebebeb;
+    /* background: transparent; */
+    color: #565f68;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+@media (min-width: 576px) {
+    body {
+        font-family: "Roboto", sans-serif;
+        background: #f0f0f0;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-family: "Roboto", sans-serif;
+        background: #f0f0f0;
+        border: none;
+        border-radius: 0px;
+    }
+}
+
+/* uses breakpoints to adjust inputField and button size depending on screen size
+but it is not proper way to do it */
+/* @media (max-width: 480px) {
+    .copy-text input {
+        border: 1px solid #ebebeb;
+        width: 68%;
+        border-radius: 5px;
+    }
+}
+
+@media (min-width: 480px) {
+    .copy-text input {
+        border: 1px solid #ebebeb;
+        width: 80%;
+        border-radius: 5px;
+    }
+} */
+
+.copy-text button {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ebebeb;
+}
+
+.copy-text button:active {
+    background: #e0e0e0;
+}
+
+.copy-text button img:active {
+    filter: brightness(10%);
+}
+
+/* causing error: not working on toggling mode */
+/* .copy-text button:hover {
+    background: #e0e0e0;
+} */
