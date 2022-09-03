@@ -1,136 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.2s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+:root {
+  --color: #333;
+  --primary-color: #0d6efd;
+  --off-white: #ebebeb;
+  --dark-primary: #3c4043;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    color: #565f68;
-    padding: 2rem;
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--color);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #0d6efd;
-    /* text-decoration: none; */
-}
-
-a {
-    text-decoration: none;
+.container {
+  max-width: 700px;
+  border: 1px solid var(--off-white);
+  padding: 1.5rem;
+  border-radius: 1rem;
 }
 
 a:hover {
-    text-decoration: underline;
-    color: #0d6efd;
+  text-decoration: underline;
 }
 
-#headerDiv {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
 }
 
-#lightMode {
-    width: 2rem;
-    margin-bottom: 1rem;
-    /* filter: invert(0%); */
+header img {
+  width: 2rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
-.password-length{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+input[type="range"] {
+  width: calc(100% - 90px);
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0.5rem;
+  height: 0.25rem;
+  background: var(--off-white);
 }
 
-.password-length input{
-    justify-content: space-between;
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 0.15em solid #c0c0c0;
+  cursor: pointer;
 }
 
-.form-control {
-    width: 80px;
-    border: 1px solid #ebebeb;
+input[type="range"]::-moz-range-progress {
+  background: var(--primary-color);
 }
 
-.form-range{
-    width: calc(100% - 90px);
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.375rem;
+  background: var(--off-white);
+  border: 1px solid var(--off-white);
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
-.copy-text input {
-    width: calc(100% - (44px + 44px));
-    padding: 0.5rem;
-    border: 1px solid #ebebeb;
-    /* background: transparent; */
-    color: #565f68;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
+input:checked[type="checkbox"] {
+  background-image: url(tick.svg);
+}
+input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
-@media (min-width: 576px) {
-    body {
-        font-family: "Roboto", sans-serif;
-        background: #f0f0f0;
-        border: 1px solid #dbdbdb;
-        border-radius: 5px;
-    }
+input[type="number"] {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 0.375rem;
+  width: 80px;
+  border: 1px solid var(--off-white);
+  background: transparent;
+  margin-right: auto;
 }
 
-@media (max-width: 576px) {
-    body {
-        font-family: "Roboto", sans-serif;
-        background: #f0f0f0;
-        border: none;
-        border-radius: 0px;
-    }
+input[type="text"] {
+  border: 1px solid var(--off-white);
+  background: transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 0.375rem;
+  width: calc(100% - 90px);
 }
 
-/* uses breakpoints to adjust inputField and button size depending on screen size
-but it is not proper way to do it */
-/* @media (max-width: 480px) {
-    .copy-text input {
-        border: 1px solid #ebebeb;
-        width: 68%;
-        border-radius: 5px;
-    }
+.checkbox-container {
+  display: flex;
+  align-items: center;
 }
 
-@media (min-width: 480px) {
-    .copy-text input {
-        border: 1px solid #ebebeb;
-        width: 80%;
-        border-radius: 5px;
-    }
-} */
-
-.copy-text button {
-    padding: 10px;
-    color: #fff;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background: #ebebeb;
+.password-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.copy-text button:active {
-    background: #e0e0e0;
+.password-output {
+  display: flex;
 }
 
-.copy-text button img:active {
-    filter: brightness(10%);
+.password-output button {
+  background: var(--off-white);
+  width: 44px;
+  padding: 10px;
+  border-radius: 0.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  transition: all 0.2s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
-/* causing error: not working on toggling mode */
-/* .copy-text button:hover {
-    background: #e0e0e0;
-} */
+.btn-copy:last-child {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.btn-copy:last-child:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.dark-mode {
+  transition: all 0.2s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  background: #202124;
+  color: #e8eaed;
+}
+
+.dark-mode input[type="checkbox"] {
+  background: var(--dark-primary);
+}
+
+.dark-mode input:checked[type="checkbox"] {
+  background-image: url(tick.svg);
+}
+
+.dark-mode input:checked[type="checkbox"] {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.dark-mode input[type="number"] {
+  border: 1px solid var(--dark-primary) !important;
+  background: transparent;
+}
+
+.dark-mode input[type="text"] {
+  border: 1px solid var(--dark-primary) !important;
+  background: transparent;
+}
+
+.dark-mode input[type="range"] {
+  background: var(--dark-primary);
+}
+
+.dark-mode .password-output button {
+  background: var(--dark-primary);
+}
+
+.dark-mode .container {
+  border: 1px solid var(--dark-primary);
+}
+
+.dark-mode header img {
+  filter: invert(1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    border: none !important;
+  }
+}
